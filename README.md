@@ -1,2 +1,3 @@
-# jiyo
-Decentralised - Instant - Private
+#Jiyo
+
+#2.1 Release
