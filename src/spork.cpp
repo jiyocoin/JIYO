@@ -83,7 +83,7 @@ void ProcessSpork(CNode* pfrom, std::string& strCommand, CDataStream& vRecv)
             }
         }
 
-        LogPrintf("spork - new %s ID %d Time %d bestHeight %d\n", hash.ToString(), spork.nSporkID, spork.nValue, chainActive.Tip()->nHeight);
+        LogPrintf("%s : new %s ID %d Time %d bestHeight %d\n", __func__, hash.ToString(), spork.nSporkID, spork.nValue, chainActive.Tip()->nHeight);
 
         if (!sporkManager.CheckSignature(spork)) {
             LogPrintf("spork - invalid signature\n");
@@ -130,6 +130,7 @@ int64_t GetSporkValue(int nSporkID)
         if (nSporkID == SPORK_15_NEW_PROTOCOL_ENFORCEMENT_2) r = SPORK_15_NEW_PROTOCOL_ENFORCEMENT_2_DEFAULT;
         if (nSporkID == SPORK_16_ZEROCOIN_MAINTENANCE_MODE) r = SPORK_16_ZEROCOIN_MAINTENANCE_MODE_DEFAULT;
         if (nSporkID == SPORK_17_PROPOSAL_VETO) r = SPORK_17_PROPOSAL_VETO_DEFAULT;
+        if (nSporkID == SPORK_18_STAKING_REQUIREMENTS) r = SPORK_18_STAKING_REQUIREMENTS_DEFAULT;
 
         if (r == -1) LogPrintf("GetSpork::Unknown Spork %d\n", nSporkID);
     }
@@ -271,6 +272,7 @@ int CSporkManager::GetSporkIDByName(std::string strName)
     if (strName == "SPORK_15_NEW_PROTOCOL_ENFORCEMENT_2") return SPORK_15_NEW_PROTOCOL_ENFORCEMENT_2;
     if (strName == "SPORK_16_ZEROCOIN_MAINTENANCE_MODE") return SPORK_16_ZEROCOIN_MAINTENANCE_MODE;
     if (strName == "SPORK_17_PROPOSAL_VETO") return SPORK_17_PROPOSAL_VETO;
+    if (strName == "SPORK_18_STAKING_REQUIREMENTS") return SPORK_18_STAKING_REQUIREMENTS;
 
     return -1;
 }
@@ -290,6 +292,7 @@ std::string CSporkManager::GetSporkNameByID(int id)
     if (id == SPORK_15_NEW_PROTOCOL_ENFORCEMENT_2) return "SPORK_15_NEW_PROTOCOL_ENFORCEMENT_2";
     if (id == SPORK_16_ZEROCOIN_MAINTENANCE_MODE) return "SPORK_16_ZEROCOIN_MAINTENANCE_MODE";
     if (id == SPORK_17_PROPOSAL_VETO) return "SPORK_17_PROPOSAL_VETO";
-
+    if (id == SPORK_18_STAKING_REQUIREMENTS) return "SPORK_18_STAKING_REQUIREMENTS";
+     
     return "Unknown";
 }

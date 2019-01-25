@@ -207,6 +207,9 @@ public:
         nRequiredAccumulation = 1;
         nDefaultSecurityLevel = 100; //full security level for accumulators
         nZerocoinHeaderVersion = 4; //Block headers must be this version once zerocoin is active
+        nStakeMinAge = 60 * 60; //The number of seconds that a utxo must be old before it can qualify for staking
+        nStakeMinConfirmations = 60; //The number of confirmations that a utxo must have before it can qualify for staking
+        nStakeMinAmount = 100 * COIN; //The minimum number of coins that can be staked.
         nBudget_Fee_Confirmations = 6; // Number of confirmations for the finalization fee
     }
 
