@@ -123,6 +123,8 @@ public:
         nMaturity = 10;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 40000000 * COIN;
+	nStakeMinConfirmations = 60; //The number of confirmations that a utxo must have before it can qualify for staking
+	nStakeMinAmount = 500 * COIN; //The minimum number of coins that can be staked.
 
         /** Height or Time Based Activations **/
         nLastPOWBlock = 200;
