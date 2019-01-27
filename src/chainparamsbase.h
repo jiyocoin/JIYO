@@ -26,6 +26,8 @@ public:
 
     const std::string& DataDir() const { return strDataDir; }
     int RPCPort() const { return nRPCPort; }
+    int Stake_Min_Confirmations() const { return nStakeMinConfirmations; }
+	CAmount Stake_Min_Amount() const { return nStakeMinAmount; }
 
 protected:
     CBaseChainParams() {}
@@ -33,6 +35,8 @@ protected:
     int nRPCPort;
     std::string strDataDir;
     Network networkID;
+    int nStakeMinConfirmations;
+	CAmount nStakeMinAmount;
 };
 
 /**
