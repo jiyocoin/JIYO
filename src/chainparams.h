@@ -106,10 +106,11 @@ public:
     int Zerocoin_RequiredAccumulation() const { return nRequiredAccumulation; }
     int Zerocoin_DefaultSpendSecurity() const { return nDefaultSecurityLevel; }
     int Zerocoin_HeaderVersion() const { return nZerocoinHeaderVersion; }
-
-    /** Height or Time Based Activations **/
     int ModifierUpgradeBlock() const { return nModifierUpdateBlock; }
     int LAST_POW_BLOCK() const { return nLastPOWBlock; }
+    unsigned int Stake_Min_Age() const { return nStakeMinAge; }
+    int Stake_Min_Confirmations() const { return nStakeMinConfirmations; }
+    CAmount Stake_Min_Amount() const { return nStakeMinAmount; }
     int Zerocoin_StartHeight() const { return nZerocoinStartHeight; }
     int Zerocoin_Block_EnforceSerialRange() const { return nBlockEnforceSerialRange; }
     int Zerocoin_Block_RecalculateAccumulators() const { return nBlockRecalculateAccumulators; }
@@ -174,6 +175,9 @@ protected:
     int nBlockLastGoodCheckpoint;
     int nZerocoinStartTime;
     int nAccumulatorStartHeight;
+    unsigned int nStakeMinAge;
+    int nStakeMinConfirmations;
+    CAmount nStakeMinAmount;
 };
 
 /**
